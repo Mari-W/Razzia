@@ -1,8 +1,6 @@
-import { MEDIA_TYPES } from "@razzia/common/constants"
 import type { ManagerStatusDataMap } from "@razzia/common/types/game/status"
 import AnswerButton from "@razzia/web/features/game/components/AnswerButton"
 import AnswerNote from "@razzia/web/features/game/components/AnswerNote"
-import QuestionDialog from "@razzia/web/features/game/components/QuestionDialog"
 import {
   ANSWERS_COLORS,
   ANSWERS_LABELS,
@@ -11,9 +9,7 @@ import {
 import { calculatePercentages } from "@razzia/web/features/game/utils/score"
 import { QUESTION_REGISTRY } from "@razzia/web/features/questions"
 import clsx from "clsx"
-import { Image, Video } from "lucide-react"
 import { useEffect, useState } from "react"
-import { useTranslation } from "react-i18next"
 import useSound from "use-sound"
 
 interface Props {
@@ -21,9 +17,8 @@ interface Props {
 }
 
 const Responses = ({ data }: Props) => {
-  const { question, answers, responses, solutions, type, note, media } = data
+  const { question, answers, responses, solutions, type, note } = data
   const { ResponsesComponent } = QUESTION_REGISTRY[type]
-  const { t } = useTranslation()
   const percentages = calculatePercentages(responses)
   const [isMusicPlaying, setIsMusicPlaying] = useState(false)
 
@@ -56,27 +51,12 @@ const Responses = ({ data }: Props) => {
     stopMusic()
   }, [playMusic, stopMusic])
 
-  const isVideo = media?.type === MEDIA_TYPES.VIDEO
-  const MediaIcon = isVideo ? Video : Image
-  const mediaButton = (isVideo || media?.type === MEDIA_TYPES.IMAGE) && (
-    <QuestionDialog
-      question={question}
-      media={media}
-      className="hover:bg-accent flex items-center gap-2 rounded-lg bg-white px-4 py-2 font-bold text-black drop-shadow-md"
-      showQuestion
-    >
-      <MediaIcon className="size-5" />
-      {t(isVideo ? "game:media.showVideo" : "game:media.showImage")}
-    </QuestionDialog>
-  )
-
   if (ResponsesComponent) {
     return (
       <div className="flex h-full flex-1 flex-col items-center justify-center gap-8 pb-4">
         <h2 className="text-center text-2xl font-bold text-white drop-shadow-lg md:text-4xl lg:text-5xl">
           {question}
         </h2>
-        {mediaButton}
         <ResponsesComponent data={data} />
         <AnswerNote note={note} />
       </div>
@@ -89,7 +69,6 @@ const Responses = ({ data }: Props) => {
         <h2 className="text-center text-2xl font-bold text-white drop-shadow-lg md:text-4xl lg:text-5xl">
           {question}
         </h2>
-        {mediaButton}
 
         <div
           className={`mt-8 grid h-40 w-full max-w-3xl gap-4 px-2`}
