@@ -101,5 +101,7 @@
   },
   "addAnswer": "Thêm câu trả lời",
   "removeAnswer": "Xóa câu trả lời",
-  "markCorrect": "Đánh dấu {{label}} là đúng"
+  "markCorrect": "Đánh dấu {{label}} là đúng",
+  "showMediaToPlayers": "Hiện media trên điện thoại",
+  "showMediaOnResponses": "Hiện media trong kết quả"
 }

@@ -101,5 +101,7 @@
   },
   "addAnswer": "Aggiungi risposta",
   "removeAnswer": "Rimuovi risposta",
-  "markCorrect": "Segna {{label}} come corretta"
+  "markCorrect": "Segna {{label}} come corretta",
+  "showMediaToPlayers": "Mostra media sui telefoni",
+  "showMediaOnResponses": "Mostra media nei risultati"
 }

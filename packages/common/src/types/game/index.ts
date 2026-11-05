@@ -81,6 +81,8 @@ export interface Quizz {
   gameMode: QuizzMode
   subject: string
   questions: Question[]
+  showMediaToPlayers?: boolean
+  showMediaOnResponses?: boolean
 }
 
 export type QuizzWithId = Quizz & { id: string }

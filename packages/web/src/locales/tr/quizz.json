@@ -101,5 +101,7 @@
   },
   "addAnswer": "Cevap ekle",
   "removeAnswer": "Cevabı kaldır",
-  "markCorrect": "{{label}} seçeneğini doğru olarak işaretle"
+  "markCorrect": "{{label}} seçeneğini doğru olarak işaretle",
+  "showMediaToPlayers": "Medyayı telefonlarda göster",
+  "showMediaOnResponses": "Medyayı sonuçlarda göster"
 }
