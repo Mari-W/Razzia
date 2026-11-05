@@ -1,5 +1,6 @@
 import type {
   Player,
+  QuestionCode,
   QuestionMedia,
   QuestionOptions,
   QuestionType,
@@ -31,12 +32,14 @@ export interface CommonStatusDataMap {
   SHOW_QUESTION: {
     question: string
     media?: QuestionMedia
+    code?: QuestionCode
     cooldown: number
   }
   SELECT_ANSWER: {
     question: string
     answers: string[]
     media?: QuestionMedia
+    code?: QuestionCode
     time: number
     totalPlayer: number
     questionType: QuestionType
@@ -52,6 +55,7 @@ export interface CommonStatusDataMap {
     aheadOfMe: string | null
     question: string
     media?: QuestionMedia
+    code?: QuestionCode
   }
   WAIT: { text: string }
   FINISHED: {
@@ -70,6 +74,7 @@ interface ManagerExtraStatus {
     solutions?: number[]
     answers: string[]
     media?: QuestionMedia
+    code?: QuestionCode
     type: QuestionType
     options?: QuestionOptions
     note?: string

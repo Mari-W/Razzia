@@ -64,6 +64,9 @@
     "placeholder": "Nhập câu hỏi của bạn...",
     "note": "Giải thích",
     "notePlaceholder": "Thêm phần giải thích hiển thị khi công bố đáp án",
+    "code": "Mã",
+    "codePlaceholder": "Thêm mã hiển thị cùng câu hỏi",
+    "codeLanguage": "Ngôn ngữ",
     "estimation": {
       "correctAnswer": "Đáp án đúng"
     }

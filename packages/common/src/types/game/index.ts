@@ -55,6 +55,11 @@ export interface QuestionMedia {
   showOnResponses?: boolean
 }
 
+export interface QuestionCode {
+  language: string
+  source: string
+}
+
 export type UploadedMediaType =
   (typeof ACCEPTED_MEDIA_TYPES)[keyof typeof ACCEPTED_MEDIA_TYPES]["type"]
 
@@ -70,6 +75,7 @@ export interface Question {
   category?: string
   note?: string
   media?: QuestionMedia
+  code?: QuestionCode
   answers: string[]
   solutions?: number[]
   cooldown: number

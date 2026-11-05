@@ -64,6 +64,9 @@
     "placeholder": "質問を入力してください...",
     "note": "解説",
     "notePlaceholder": "答えの発表時に表示される解説を追加",
+    "code": "コード",
+    "codePlaceholder": "質問と一緒に表示するコードを追加",
+    "codeLanguage": "言語",
     "estimation": {
       "correctAnswer": "正解"
     }

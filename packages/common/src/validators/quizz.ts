@@ -38,6 +38,7 @@ const questionSchema = z.object({
   category: z.string().optional(),
   note: z.string().optional(),
   media: questionMediaValidator.optional(),
+  code: z.object({ language: z.string(), source: z.string() }).optional(),
   answers: z.array(z.string().min(1, "errors:quizz.answerEmpty")),
   solutions: z.array(z.number()).optional(),
   cooldown: z

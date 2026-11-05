@@ -32,8 +32,8 @@ const Combobox = ({
   const listId = useId()
 
   const query = value.trim().toLowerCase()
-  const suggestions = options.filter(
-    (option) => option !== value && option.toLowerCase().includes(query),
+  const suggestions = options.filter((option) =>
+    option.toLowerCase().includes(query),
   )
   const isOpen = open && suggestions.length > 0
 
