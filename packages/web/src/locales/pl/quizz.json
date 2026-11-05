@@ -100,11 +100,11 @@
       "grid": "Widok siatki",
       "list": "Widok listy"
     },
-    "filterByType": "Filtruj według typu"
+    "filterByType": "Filtruj według typu",
+    "showToPlayers": "Zawsze pokazuj na telefonach",
+    "showOnResponses": "Pokaż w wynikach"
   },
   "addAnswer": "Dodaj odpowiedź",
   "removeAnswer": "Usuń odpowiedź",
-  "markCorrect": "Oznacz {{label}} jako poprawną",
-  "showMediaToPlayers": "Pokaż media na telefonach",
-  "showMediaOnResponses": "Pokaż media w wynikach"
+  "markCorrect": "Oznacz {{label}} jako poprawną"
 }

@@ -45,7 +45,6 @@ export interface CommonStatusDataMap {
     questionType: QuestionType
     options?: QuestionOptions
     answersOnly: boolean
-    showMedia: boolean
   }
   SHOW_RESULT: {
     correct: boolean
@@ -79,7 +78,6 @@ interface ManagerExtraStatus {
     type: QuestionType
     options?: QuestionOptions
     note?: string
-    showMedia: boolean
   }
   SHOW_LEADERBOARD: { oldLeaderboard: Player[]; leaderboard: Player[] }
 }

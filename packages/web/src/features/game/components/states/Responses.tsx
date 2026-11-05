@@ -21,17 +21,8 @@ interface Props {
 }
 
 const Responses = ({ data }: Props) => {
-  const {
-    question,
-    answers,
-    responses,
-    solutions,
-    type,
-    note,
-    media,
-    showMedia,
-    code,
-  } = data
+  const { question, answers, responses, solutions, type, note, media, code } =
+    data
   const { ResponsesComponent } = QUESTION_REGISTRY[type]
   const percentages = calculatePercentages(responses)
   const [isMusicPlaying, setIsMusicPlaying] = useState(false)
@@ -66,8 +57,8 @@ const Responses = ({ data }: Props) => {
   }, [playMusic, stopMusic])
 
   const questionMedia =
-    showMedia &&
-    (media?.type === MEDIA_TYPES.IMAGE ? (
+    media?.showOnResponses &&
+    (media.type === MEDIA_TYPES.IMAGE ? (
       <QuestionDialog
         question={question}
         media={media}

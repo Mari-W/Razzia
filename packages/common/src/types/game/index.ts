@@ -51,6 +51,8 @@ export type QuestionMediaType =
 export interface QuestionMedia {
   type?: QuestionMediaType
   url: string
+  showToPlayers?: boolean
+  showOnResponses?: boolean
 }
 
 export interface QuestionCode {
@@ -87,8 +89,6 @@ export interface Quizz {
   gameMode: QuizzMode
   subject: string
   questions: Question[]
-  showMediaToPlayers?: boolean
-  showMediaOnResponses?: boolean
 }
 
 export type QuizzWithId = Quizz & { id: string }

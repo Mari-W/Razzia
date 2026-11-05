@@ -100,11 +100,11 @@
       "grid": "Izgara görünümü",
       "list": "Liste görünümü"
     },
-    "filterByType": "Türe göre filtrele"
+    "filterByType": "Türe göre filtrele",
+    "showToPlayers": "Telefonlarda her zaman göster",
+    "showOnResponses": "Sonuçlarda göster"
   },
   "addAnswer": "Cevap ekle",
   "removeAnswer": "Cevabı kaldır",
-  "markCorrect": "{{label}} seçeneğini doğru olarak işaretle",
-  "showMediaToPlayers": "Medyayı telefonlarda göster",
-  "showMediaOnResponses": "Medyayı sonuçlarda göster"
+  "markCorrect": "{{label}} seçeneğini doğru olarak işaretle"
 }

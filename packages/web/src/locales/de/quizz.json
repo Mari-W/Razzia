@@ -100,11 +100,11 @@
       "grid": "Rasteransicht",
       "list": "Listenansicht"
     },
-    "filterByType": "Nach Typ filtern"
+    "filterByType": "Nach Typ filtern",
+    "showToPlayers": "Immer auf Handys zeigen",
+    "showOnResponses": "Auf Ergebnisseite zeigen"
   },
   "addAnswer": "Antwort hinzufügen",
   "removeAnswer": "Antwort entfernen",
-  "markCorrect": "{{label}} als richtig markieren",
-  "showMediaToPlayers": "Medien auf Handys zeigen",
-  "showMediaOnResponses": "Medien bei Ergebnissen zeigen"
+  "markCorrect": "{{label}} als richtig markieren"
 }

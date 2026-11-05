@@ -100,11 +100,11 @@
       "grid": "Vista de cuadrícula",
       "list": "Vista de lista"
     },
-    "filterByType": "Filtrar por tipo"
+    "filterByType": "Filtrar por tipo",
+    "showToPlayers": "Mostrar siempre en móviles",
+    "showOnResponses": "Mostrar en resultados"
   },
   "addAnswer": "Añadir respuesta",
   "removeAnswer": "Quitar respuesta",
-  "markCorrect": "Marcar {{label}} como correcta",
-  "showMediaToPlayers": "Mostrar medios en móviles",
-  "showMediaOnResponses": "Mostrar medios en resultados"
+  "markCorrect": "Marcar {{label}} como correcta"
 }

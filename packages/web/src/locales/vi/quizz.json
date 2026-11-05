@@ -100,11 +100,11 @@
       "grid": "Dạng lưới",
       "list": "Dạng danh sách"
     },
-    "filterByType": "Lọc theo loại"
+    "filterByType": "Lọc theo loại",
+    "showToPlayers": "Luôn hiện trên điện thoại",
+    "showOnResponses": "Hiện trong kết quả"
   },
   "addAnswer": "Thêm câu trả lời",
   "removeAnswer": "Xóa câu trả lời",
-  "markCorrect": "Đánh dấu {{label}} là đúng",
-  "showMediaToPlayers": "Hiện media trên điện thoại",
-  "showMediaOnResponses": "Hiện media trong kết quả"
+  "markCorrect": "Đánh dấu {{label}} là đúng"
 }

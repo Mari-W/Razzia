@@ -326,7 +326,6 @@ export class RoundManager {
       questionType: this.question.type,
       options: this.question.options,
       answersOnly: this.opts.getSettings().answersOnly,
-      showMedia: Boolean(this.opts.quizz.showMediaToPlayers),
     })
 
     await this.opts.cooldown.start(this.question.time)
@@ -372,7 +371,6 @@ export class RoundManager {
         ...this.question,
         solutions: undefined,
         responses: answerCounts,
-        showMedia: Boolean(this.opts.quizz.showMediaOnResponses),
       })
 
       currentPlayers.forEach((player) => {
@@ -422,7 +420,6 @@ export class RoundManager {
     this.opts.send(this.opts.getManagerId(), STATUS.SHOW_RESPONSES, {
       ...this.question,
       responses: answerCounts,
-      showMedia: Boolean(this.opts.quizz.showMediaOnResponses),
     })
 
     this.recordHistory(currentPlayers, sortedPlayers)

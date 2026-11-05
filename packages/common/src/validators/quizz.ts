@@ -22,6 +22,8 @@ export const questionMediaValidator = z.object({
         url.startsWith(MEDIA_URL_PREFIX) || z.url().safeParse(url).success,
       "errors:quizz.invalidMediaUrl",
     ),
+  showToPlayers: z.boolean().optional(),
+  showOnResponses: z.boolean().optional(),
 })
 
 export const mediaUploadValidator = z.object({
@@ -67,8 +69,6 @@ export const quizzValidator = z
     gameMode: z.enum(QUIZZ_MODES),
     subject: z.string().min(1, "errors:quizz.subjectEmpty"),
     questions: z.array(questionValidator).min(1, "errors:quizz.noQuestions"),
-    showMediaToPlayers: z.boolean().optional(),
-    showMediaOnResponses: z.boolean().optional(),
   })
   .superRefine((quizz, ctx) => {
     if (quizz.gameMode !== QUIZZ_MODES.QUIZ) {

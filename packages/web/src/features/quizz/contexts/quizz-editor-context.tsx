@@ -28,8 +28,6 @@ export interface QuizzFormValues {
   gameMode: QuizzMode
   subject: string
   questions: Question[]
-  showMediaToPlayers?: boolean
-  showMediaOnResponses?: boolean
 }
 
 interface QuizzEditorContextType {
@@ -79,8 +77,6 @@ export const QuizzEditorProvider = ({
       gameMode: initialData?.gameMode ?? QUIZZ_MODES.QUIZ,
       subject: initialData?.subject ?? "Untitled Quizz",
       questions: initialData ? initialData.questions : [defaultQuestion()],
-      showMediaToPlayers: initialData?.showMediaToPlayers ?? false,
-      showMediaOnResponses: initialData?.showMediaOnResponses ?? false,
     },
   })
 

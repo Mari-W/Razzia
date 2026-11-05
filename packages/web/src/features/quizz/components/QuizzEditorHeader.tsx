@@ -3,7 +3,6 @@ import type { QuizzValidated } from "@razzia/common/validators/quizz"
 import Button from "@razzia/web/components/Button"
 import FieldError from "@razzia/web/components/forms/FieldError"
 import Input from "@razzia/web/components/Input"
-import Switch from "@razzia/web/components/Switch"
 import ToggleGroup from "@razzia/web/components/ToggleGroup"
 import {
   createQuizz,
@@ -23,8 +22,6 @@ import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 
 const QUIZZ_MODE_LIST = Object.values(QUIZZ_MODES)
-
-const MEDIA_SWITCHES = ["showMediaToPlayers", "showMediaOnResponses"] as const
 
 const QuizzEditorHeader = () => {
   const { quizzId, setCurrentIndex } = useQuizzEditor()
@@ -131,23 +128,6 @@ const QuizzEditorHeader = () => {
             />
           )}
         />
-
-        {MEDIA_SWITCHES.map((name) => (
-          <Controller
-            key={name}
-            control={control}
-            name={name}
-            render={({ field }) => (
-              <label className="flex items-center gap-2 text-sm font-semibold">
-                <Switch
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
-                {t(`quizz:${name}`)}
-              </label>
-            )}
-          />
-        ))}
       </div>
 
       <div className="flex gap-2">

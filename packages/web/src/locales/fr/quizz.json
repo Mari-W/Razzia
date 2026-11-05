@@ -100,11 +100,11 @@
       "grid": "Vue grille",
       "list": "Vue liste"
     },
-    "filterByType": "Filtrer par type"
+    "filterByType": "Filtrer par type",
+    "showToPlayers": "Toujours afficher sur les téléphones",
+    "showOnResponses": "Afficher dans les résultats"
   },
   "addAnswer": "Ajouter une réponse",
   "removeAnswer": "Retirer une réponse",
-  "markCorrect": "Marquer {{label}} comme bonne réponse",
-  "showMediaToPlayers": "Afficher le média sur les téléphones",
-  "showMediaOnResponses": "Afficher le média dans les résultats"
+  "markCorrect": "Marquer {{label}} comme bonne réponse"
 }
