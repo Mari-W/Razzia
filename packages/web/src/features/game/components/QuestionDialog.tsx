@@ -78,7 +78,7 @@ const QuestionDialog = ({
             />
           )}
 
-          {code && <QuestionCode code={code} />}
+          <QuestionCode code={code} />
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

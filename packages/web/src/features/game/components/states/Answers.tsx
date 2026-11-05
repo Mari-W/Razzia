@@ -151,7 +151,7 @@ const Answers = ({
             <QuestionMedia media={media} alt={question} />
           )}
 
-          {code && <QuestionCode code={code} />}
+          <QuestionCode code={code} />
         </div>
       )}
 

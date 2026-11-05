@@ -31,7 +31,7 @@ const Question = ({ data: { question, media, code, cooldown } }: Props) => {
           />
         )}
 
-        {code && <QuestionCode code={code} />}
+        <QuestionCode code={code} />
       </div>
       <div
         className="bg-primary mb-20 h-4 self-start justify-self-end rounded-full"

@@ -64,6 +64,14 @@ describe("quizzValidator", () => {
     expect(issues(data)).toEqual([])
   })
 
+  it("keeps the code of a question", () => {
+    const code = { language: "python", source: "print(1)" }
+
+    expect(
+      quizzValidator.parse(quizz([choiceQuestion({ code })])).questions[0].code,
+    ).toEqual(code)
+  })
+
   it("requires at least one question", () => {
     expect(issues(quizz([]))).toContain("errors:quizz.noQuestions")
   })
