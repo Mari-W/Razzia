@@ -1,6 +1,7 @@
 import { EVENTS, MEDIA_TYPES, NO_TIME_LIMIT } from "@razzia/common/constants"
 import type { QuestionMediaType } from "@razzia/common/types/game"
 import type { CommonStatusDataMap } from "@razzia/common/types/game/status"
+import QuestionCode from "@razzia/web/components/QuestionCode"
 import QuestionMedia from "@razzia/web/components/QuestionMedia"
 import QuestionDialog from "@razzia/web/features/game/components/QuestionDialog"
 import {
@@ -29,6 +30,7 @@ const Answers = ({
     question,
     answers,
     media,
+    code,
     time,
     totalPlayer,
     questionType,
@@ -113,6 +115,7 @@ const Answers = ({
           <QuestionDialog
             question={question}
             media={isPopupMedia ? media : undefined}
+            code={code}
             label={t("game:question.show")}
             className="hover:bg-accent absolute top-4 right-4 flex size-11 items-center justify-center rounded-md bg-white text-black"
             showQuestion
@@ -148,6 +151,8 @@ const Answers = ({
           ) : (
             <QuestionMedia media={media} alt={question} />
           )}
+
+          {code && <QuestionCode code={code} />}
         </div>
       )}
 

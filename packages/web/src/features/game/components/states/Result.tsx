@@ -23,6 +23,7 @@ const Result = ({
     aheadOfMe,
     question,
     media,
+    code,
   },
 }: Props) => {
   const { updatePlayer } = usePlayerStore()
@@ -62,6 +63,7 @@ const Result = ({
       <QuestionDialog
         question={question}
         media={media}
+        code={code}
         className="hover:bg-accent mt-6 flex items-center gap-2 rounded-lg bg-white px-4 py-2 font-bold text-black drop-shadow-md"
         showQuestion
       >

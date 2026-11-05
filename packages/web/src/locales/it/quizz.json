@@ -64,6 +64,9 @@
     "placeholder": "Inizia a scrivere la tua domanda...",
     "note": "Spiegazione",
     "notePlaceholder": "Aggiungi una spiegazione mostrata quando viene rivelata la risposta",
+    "code": "Codice",
+    "codePlaceholder": "Aggiungi codice mostrato con la domanda",
+    "codeLanguage": "Linguaggio",
     "estimation": {
       "correctAnswer": "Risposta corretta"
     }

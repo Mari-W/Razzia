@@ -64,6 +64,9 @@
     "placeholder": "Start typing your question...",
     "note": "Explanation",
     "notePlaceholder": "Add an explanation shown when the answer is revealed",
+    "code": "Code",
+    "codePlaceholder": "Add code shown with the question",
+    "codeLanguage": "Language",
     "estimation": {
       "correctAnswer": "Correct answer"
     }

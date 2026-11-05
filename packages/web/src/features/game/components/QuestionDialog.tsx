@@ -1,5 +1,9 @@
 import { MEDIA_TYPES } from "@razzia/common/constants"
-import type { QuestionMedia as QuestionMediaType } from "@razzia/common/types/game"
+import type {
+  QuestionCode as QuestionCodeType,
+  QuestionMedia as QuestionMediaType,
+} from "@razzia/common/types/game"
+import QuestionCode from "@razzia/web/components/QuestionCode"
 import clsx from "clsx"
 import { X } from "lucide-react"
 import { Dialog, VisuallyHidden } from "radix-ui"
@@ -8,6 +12,7 @@ import { type PropsWithChildren, useState } from "react"
 type Props = PropsWithChildren & {
   question: string
   media?: QuestionMediaType
+  code?: QuestionCodeType
   showQuestion?: boolean
   className?: string
   label?: string
@@ -16,6 +21,7 @@ type Props = PropsWithChildren & {
 const QuestionDialog = ({
   question,
   media,
+  code,
   showQuestion,
   className,
   label,
@@ -71,6 +77,8 @@ const QuestionDialog = ({
               )}
             />
           )}
+
+          {code && <QuestionCode code={code} />}
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

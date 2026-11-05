@@ -1,6 +1,7 @@
 import GameBackground from "@razzia/web/components/GameBackground"
 import { QUESTION_REGISTRY } from "@razzia/web/features/questions"
 import QuestionEditorAnswers from "@razzia/web/features/quizz/components/QuestionEditor/QuestionEditorAnswers"
+import QuestionEditorCode from "@razzia/web/features/quizz/components/QuestionEditor/QuestionEditorCode"
 import QuestionEditorConfig from "@razzia/web/features/quizz/components/QuestionEditor/QuestionEditorConfig"
 import QuestionEditorMedia from "@razzia/web/features/quizz/components/QuestionEditor/QuestionEditorMedia"
 import QuestionEditorNote from "@razzia/web/features/quizz/components/QuestionEditor/QuestionEditorNote"
@@ -22,6 +23,7 @@ const QuestionEditor = () => {
       <main className="mx-auto flex max-w-7xl flex-1 flex-col gap-4 overflow-y-auto p-6">
         <QuestionEditorTitle />
         <QuestionEditorMedia />
+        <QuestionEditorCode />
         <QuestionEditorNote />
         <AnswersEditor key={currentQuestionId} />
 
