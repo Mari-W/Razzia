@@ -1,4 +1,5 @@
 import type { ManagerStatusDataMap } from "@razzia/common/types/game/status"
+import QuestionCode from "@razzia/web/components/QuestionCode"
 import AnswerButton from "@razzia/web/features/game/components/AnswerButton"
 import AnswerNote from "@razzia/web/features/game/components/AnswerNote"
 import {
@@ -17,7 +18,7 @@ interface Props {
 }
 
 const Responses = ({ data }: Props) => {
-  const { question, answers, responses, solutions, type, note } = data
+  const { question, answers, responses, solutions, type, note, code } = data
   const { ResponsesComponent } = QUESTION_REGISTRY[type]
   const percentages = calculatePercentages(responses)
   const [isMusicPlaying, setIsMusicPlaying] = useState(false)
@@ -57,6 +58,7 @@ const Responses = ({ data }: Props) => {
         <h2 className="text-center text-2xl font-bold text-white drop-shadow-lg md:text-4xl lg:text-5xl">
           {question}
         </h2>
+        {code && <QuestionCode code={code} />}
         <ResponsesComponent data={data} />
         <AnswerNote note={note} />
       </div>
@@ -69,6 +71,7 @@ const Responses = ({ data }: Props) => {
         <h2 className="text-center text-2xl font-bold text-white drop-shadow-lg md:text-4xl lg:text-5xl">
           {question}
         </h2>
+        {code && <QuestionCode code={code} />}
 
         <div
           className={`mt-8 grid h-40 w-full max-w-3xl gap-4 px-2`}

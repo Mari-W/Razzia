@@ -64,6 +64,9 @@
     "placeholder": "Sorunuzu yazmaya başlayın...",
     "note": "Açıklama",
     "notePlaceholder": "Cevap açıklandığında gösterilecek bir açıklama ekleyin",
+    "code": "Kod",
+    "codePlaceholder": "Soruyla birlikte gösterilecek kodu ekleyin",
+    "codeLanguage": "Dil",
     "estimation": {
       "correctAnswer": "Doğru cevap"
     }

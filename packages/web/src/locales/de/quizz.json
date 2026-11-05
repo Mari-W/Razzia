@@ -64,6 +64,9 @@
     "placeholder": "Beginne deine Frage zu tippen...",
     "note": "Erklärung",
     "notePlaceholder": "Erklärung hinzufügen, die beim Aufdecken der Antwort angezeigt wird",
+    "code": "Code",
+    "codePlaceholder": "Code hinzufügen, der mit der Frage angezeigt wird",
+    "codeLanguage": "Sprache",
     "estimation": {
       "correctAnswer": "Richtige Antwort"
     }

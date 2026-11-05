@@ -1,5 +1,6 @@
 import { MEDIA_TYPES } from "@razzia/common/constants"
 import type { CommonStatusDataMap } from "@razzia/common/types/game/status"
+import QuestionCode from "@razzia/web/components/QuestionCode"
 import { SFX } from "@razzia/web/features/game/utils/constants"
 import { useEffect } from "react"
 import useSound from "use-sound"
@@ -8,7 +9,7 @@ interface Props {
   data: CommonStatusDataMap["SHOW_QUESTION"]
 }
 
-const Question = ({ data: { question, media, cooldown } }: Props) => {
+const Question = ({ data: { question, media, code, cooldown } }: Props) => {
   const [sfxShow] = useSound(SFX.SHOW_SOUND, { volume: 0.5 })
 
   useEffect(() => {
@@ -29,6 +30,8 @@ const Question = ({ data: { question, media, cooldown } }: Props) => {
             className="max-h-60 w-auto rounded-md sm:max-h-100"
           />
         )}
+
+        {code && <QuestionCode code={code} />}
       </div>
       <div
         className="bg-primary mb-20 h-4 self-start justify-self-end rounded-full"

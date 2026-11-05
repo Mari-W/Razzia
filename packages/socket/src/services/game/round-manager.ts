@@ -303,6 +303,7 @@ export class RoundManager {
     this.opts.broadcast(STATUS.SHOW_QUESTION, {
       question: this.question.question,
       media: imageMedia,
+      code: this.question.code,
       cooldown: this.question.cooldown,
     })
 
@@ -319,6 +320,7 @@ export class RoundManager {
       question: this.question.question,
       answers: this.question.answers,
       media: this.question.media,
+      code: this.question.code,
       time: this.question.time,
       totalPlayer: this.opts.players.count(),
       questionType: this.question.type,
