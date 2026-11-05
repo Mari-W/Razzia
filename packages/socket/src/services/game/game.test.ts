@@ -193,7 +193,13 @@ describe("quiz flow", () => {
 
     expect(status("alice")).toMatchObject({
       name: STATUS.SHOW_RESULT,
-      data: { correct: true, points: 1000, rank: 1, aheadOfMe: null },
+      data: {
+        correct: true,
+        points: 1000,
+        rank: 1,
+        aheadOfMe: null,
+        question: questions[0].question,
+      },
     })
     expect(status("bob")).toMatchObject({
       name: STATUS.SHOW_RESULT,
