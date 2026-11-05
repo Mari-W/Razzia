@@ -1,12 +1,22 @@
 import { MEDIA_TYPES, QUESTION_TYPES } from "@razzia/common/constants"
-import type { Question, QuestionMedia } from "@razzia/common/types/game"
+import type {
+  Question,
+  QuestionCode,
+  QuestionMedia,
+} from "@razzia/common/types/game"
 import AlertDialog from "@razzia/web/components/AlertDialog"
 import clsx from "clsx"
 import { CircleAlert, Music, Trash2, Video } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { twMerge } from "tailwind-merge"
 
-const SlideMedia = ({ media }: { media?: QuestionMedia }) => {
+const SlideMedia = ({
+  media,
+  code,
+}: {
+  media?: QuestionMedia
+  code?: QuestionCode
+}) => {
   if (media?.type === MEDIA_TYPES.IMAGE) {
     return (
       <img src={media.url} className="mx-auto max-h-14 w-auto rounded-md" />
@@ -19,6 +29,14 @@ const SlideMedia = ({ media }: { media?: QuestionMedia }) => {
 
   if (media?.type === MEDIA_TYPES.AUDIO) {
     return <Music className="text-muted-foreground mx-auto size-10" />
+  }
+
+  if (code?.source) {
+    return (
+      <pre className="max-h-14 overflow-hidden rounded-md bg-black/80 px-1.5 py-1 text-[6px] leading-tight text-white">
+        {code.source}
+      </pre>
+    )
   }
 
   return null
@@ -74,7 +92,7 @@ const QuizzEditorCard = ({
         {question.question || t("quizz:noQuestionYet")}
       </p>
 
-      <SlideMedia media={question.media} />
+      <SlideMedia media={question.media} code={question.code} />
 
       {question.type === QUESTION_TYPES.ESTIMATION ? (
         <div className="border-accent flex h-4 items-center rounded-md border px-1.5">
