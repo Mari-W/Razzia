@@ -97,7 +97,9 @@
       "grid": "Vista de cuadrícula",
       "list": "Vista de lista"
     },
-    "filterByType": "Filtrar por tipo"
+    "filterByType": "Filtrar por tipo",
+    "showToPlayers": "Mostrar siempre en móviles",
+    "showOnResponses": "Mostrar en resultados"
   },
   "addAnswer": "Añadir respuesta",
   "removeAnswer": "Quitar respuesta",

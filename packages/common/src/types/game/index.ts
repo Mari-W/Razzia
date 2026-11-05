@@ -51,6 +51,8 @@ export type QuestionMediaType =
 export interface QuestionMedia {
   type?: QuestionMediaType
   url: string
+  showToPlayers?: boolean
+  showOnResponses?: boolean
 }
 
 export type UploadedMediaType =

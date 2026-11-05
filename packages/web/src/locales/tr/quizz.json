@@ -97,7 +97,9 @@
       "grid": "Izgara görünümü",
       "list": "Liste görünümü"
     },
-    "filterByType": "Türe göre filtrele"
+    "filterByType": "Türe göre filtrele",
+    "showToPlayers": "Telefonlarda her zaman göster",
+    "showOnResponses": "Sonuçlarda göster"
   },
   "addAnswer": "Cevap ekle",
   "removeAnswer": "Cevabı kaldır",

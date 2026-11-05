@@ -97,7 +97,9 @@
       "grid": "Grid view",
       "list": "List view"
     },
-    "filterByType": "Filter by type"
+    "filterByType": "Filter by type",
+    "showToPlayers": "Always show on phones",
+    "showOnResponses": "Show on results screen"
   },
   "addAnswer": "Add answer",
   "removeAnswer": "Remove answer",

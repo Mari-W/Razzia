@@ -48,7 +48,10 @@ const Answers = ({
   const isPopupMedia = popupMedia.includes(media?.type)
   const showAnswersOnly = Boolean(player) && answersOnly
   const showMediaInPopup =
-    Boolean(player) && width < MOBILE_BREAKPOINT && isPopupMedia
+    Boolean(player) &&
+    !media?.showToPlayers &&
+    width < MOBILE_BREAKPOINT &&
+    isPopupMedia
 
   const [sfxPop] = useSound(SFX.ANSWERS.SOUND, {
     volume: 0.1,

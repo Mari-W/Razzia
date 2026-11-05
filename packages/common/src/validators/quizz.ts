@@ -22,6 +22,8 @@ export const questionMediaValidator = z.object({
         url.startsWith(MEDIA_URL_PREFIX) || z.url().safeParse(url).success,
       "errors:quizz.invalidMediaUrl",
     ),
+  showToPlayers: z.boolean().optional(),
+  showOnResponses: z.boolean().optional(),
 })
 
 export const mediaUploadValidator = z.object({
