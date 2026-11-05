@@ -4,9 +4,10 @@ import { useEffect, useState } from "react"
 
 const LANGUAGE_PATH = "/node_modules/highlight.js/lib/languages/"
 
-const languages = import.meta.glob<{ default: LanguageFn }>(
+const languages = import.meta.glob<{ default: LanguageFn }>([
   "/node_modules/highlight.js/lib/languages/*.js",
-)
+  "!**/*.js.js",
+])
 
 export const CODE_LANGUAGES = Object.keys(languages).map((path) =>
   path.slice(LANGUAGE_PATH.length, -".js".length),
