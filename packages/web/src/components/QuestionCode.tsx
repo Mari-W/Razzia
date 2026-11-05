@@ -13,7 +13,7 @@ export const CODE_LANGUAGES = Object.keys(languages).map((path) =>
   path.slice(LANGUAGE_PATH.length, -".js".length),
 )
 
-let hljs: HLJSApi | undefined
+let hljs: HLJSApi | undefined = undefined
 
 const loadLanguage = async (language: string) => {
   const [core, grammar] = await Promise.all([
