@@ -50,6 +50,8 @@ export interface CommonStatusDataMap {
     myPoints: number
     rank: number
     aheadOfMe: string | null
+    question: string
+    media?: QuestionMedia
   }
   WAIT: { text: string }
   FINISHED: {
