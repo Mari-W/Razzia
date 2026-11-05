@@ -1,5 +1,5 @@
 import type { QuestionCode as QuestionCodeType } from "@razzia/common/types/game"
-import type { LanguageFn } from "highlight.js"
+import type { HLJSApi, LanguageFn } from "highlight.js"
 import { useEffect, useState } from "react"
 
 const LANGUAGE_PATH = "/node_modules/highlight.js/lib/languages/"
@@ -13,16 +13,43 @@ export const CODE_LANGUAGES = Object.keys(languages).map((path) =>
   path.slice(LANGUAGE_PATH.length, -".js".length),
 )
 
-const highlight = async ({ language, source }: QuestionCodeType) => {
-  const [{ default: hljs }, { default: grammar }] = await Promise.all([
+let hljs: HLJSApi | undefined
+
+const loadLanguage = async (language: string) => {
+  const [core, grammar] = await Promise.all([
     import("highlight.js/lib/core"),
     languages[`${LANGUAGE_PATH}${language}.js`](),
     import("highlight.js/styles/github-dark.css"),
   ])
 
-  hljs.registerLanguage(language, grammar)
+  hljs = core.default
+  hljs.registerLanguage(language, grammar.default)
+}
 
-  return hljs.highlight(source, { language }).value
+export const useHighlightedCode = ({ language, source }: QuestionCodeType) => {
+  const [, setLoaded] = useState<string>()
+
+  useEffect(() => {
+    if (!CODE_LANGUAGES.includes(language) || hljs?.getLanguage(language)) {
+      return
+    }
+
+    let active = true
+
+    loadLanguage(language).then(() => {
+      if (active) {
+        setLoaded(language)
+      }
+    })
+
+    return () => {
+      active = false
+    }
+  }, [language])
+
+  return hljs?.getLanguage(language)
+    ? hljs.highlight(source, { language }).value
+    : undefined
 }
 
 interface Props {
@@ -30,33 +57,12 @@ interface Props {
 }
 
 const QuestionCode = ({ code }: Props) => {
-  const [highlighted, setHighlighted] = useState<{
-    code: QuestionCodeType
-    html: string
-  }>()
-
-  useEffect(() => {
-    if (!CODE_LANGUAGES.includes(code.language)) {
-      return
-    }
-
-    let active = true
-
-    highlight(code).then((html) => {
-      if (active) {
-        setHighlighted({ code, html })
-      }
-    })
-
-    return () => {
-      active = false
-    }
-  }, [code])
+  const html = useHighlightedCode(code)
 
   return (
     <pre className="max-h-[40svh] min-h-0 w-full max-w-3xl touch-auto overflow-auto rounded-md bg-black/80 p-4 text-left text-sm text-white sm:max-h-100 sm:text-base">
-      {highlighted?.code === code ? (
-        <code dangerouslySetInnerHTML={{ __html: highlighted.html }} />
+      {html ? (
+        <code dangerouslySetInnerHTML={{ __html: html }} />
       ) : (
         <code>{code.source}</code>
       )}

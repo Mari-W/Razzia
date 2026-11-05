@@ -1,6 +1,9 @@
 import type { QuestionCode } from "@razzia/common/types/game"
 import Combobox from "@razzia/web/components/Combobox"
-import { CODE_LANGUAGES } from "@razzia/web/components/QuestionCode"
+import {
+  CODE_LANGUAGES,
+  useHighlightedCode,
+} from "@razzia/web/components/QuestionCode"
 import { useQuizzEditor } from "@razzia/web/features/quizz/contexts/quizz-editor-context"
 import clsx from "clsx"
 import { Code } from "lucide-react"
@@ -10,6 +13,7 @@ const QuestionEditorCode = () => {
   const { currentQuestion, currentIndex, updateQuestion } = useQuizzEditor()
   const { t } = useTranslation()
   const { language = "", source = "" } = currentQuestion.code ?? {}
+  const html = useHighlightedCode({ language, source })
 
   const handleChange = (code: QuestionCode) => {
     updateQuestion(currentIndex, {
@@ -36,15 +40,23 @@ const QuestionEditorCode = () => {
           className="w-48"
         />
       </div>
-      <textarea
-        value={source}
-        onChange={(e) => handleChange({ language, source: e.target.value })}
-        aria-label={t("quizz:question.code")}
-        placeholder={t("quizz:question.codePlaceholder")}
-        rows={1}
-        spellCheck={false}
-        className="placeholder:text-muted-foreground text-foreground field-sizing-content max-h-96 resize-none bg-transparent font-mono text-sm outline-none"
-      />
+      <div className="grid rounded-md bg-black/80 p-4 font-mono text-sm text-white">
+        <pre
+          aria-hidden
+          className="col-start-1 row-start-1 break-words whitespace-pre-wrap"
+        >
+          {html ? <code dangerouslySetInnerHTML={{ __html: html }} /> : source}
+          {"\n"}
+        </pre>
+        <textarea
+          value={source}
+          onChange={(e) => handleChange({ language, source: e.target.value })}
+          aria-label={t("quizz:question.code")}
+          placeholder={t("quizz:question.codePlaceholder")}
+          spellCheck={false}
+          className="col-start-1 row-start-1 resize-none overflow-hidden break-words whitespace-pre-wrap text-transparent caret-white outline-none placeholder:text-white/50"
+        />
+      </div>
     </div>
   )
 }
