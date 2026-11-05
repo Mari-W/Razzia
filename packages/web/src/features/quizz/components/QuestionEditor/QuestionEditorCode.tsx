@@ -7,6 +7,7 @@ import {
 import { useQuizzEditor } from "@razzia/web/features/quizz/contexts/quizz-editor-context"
 import clsx from "clsx"
 import { Code } from "lucide-react"
+import type { KeyboardEvent } from "react"
 import { useTranslation } from "react-i18next"
 
 const QuestionEditorCode = () => {
@@ -18,6 +19,21 @@ const QuestionEditorCode = () => {
     updateQuestion(currentIndex, {
       code: code.language || code.source ? code : undefined,
     })
+  }
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key !== "Tab") {
+      return
+    }
+
+    e.preventDefault()
+    e.currentTarget.setRangeText(
+      "  ",
+      e.currentTarget.selectionStart,
+      e.currentTarget.selectionEnd,
+      "end",
+    )
+    handleChange({ language, source: e.currentTarget.value })
   }
 
   return (
@@ -39,22 +55,23 @@ const QuestionEditorCode = () => {
           className="w-48"
         />
       </div>
-      <div className="grid rounded-md bg-black/80 p-4 font-mono text-sm text-white">
-        <pre
-          aria-hidden
-          className="col-start-1 row-start-1 break-words whitespace-pre-wrap"
-        >
-          <HighlightedCode code={{ language, source }} />
-          {"\n"}
-        </pre>
-        <textarea
-          value={source}
-          onChange={(e) => handleChange({ language, source: e.target.value })}
-          aria-label={t("quizz:question.code")}
-          placeholder={t("quizz:question.codePlaceholder")}
-          spellCheck={false}
-          className="col-start-1 row-start-1 resize-none overflow-hidden break-words whitespace-pre-wrap text-transparent caret-white outline-none placeholder:text-white/50"
-        />
+      <div className="overflow-x-auto rounded-md bg-black/80 p-4 font-mono text-sm text-white">
+        <div className="grid w-max min-w-full">
+          <pre aria-hidden className="col-start-1 row-start-1">
+            <HighlightedCode code={{ language, source }} />
+            {"\n"}
+          </pre>
+          <textarea
+            value={source}
+            onChange={(e) => handleChange({ language, source: e.target.value })}
+            onKeyDown={handleKeyDown}
+            aria-label={t("quizz:question.code")}
+            placeholder={t("quizz:question.codePlaceholder")}
+            spellCheck={false}
+            wrap="off"
+            className="col-start-1 row-start-1 resize-none overflow-hidden text-transparent caret-white outline-none placeholder:text-white/50"
+          />
+        </div>
       </div>
     </div>
   )

@@ -77,7 +77,7 @@ const Responses = ({ data }: Props) => {
           {question}
         </h2>
         {questionMedia}
-        {code && <QuestionCode code={code} />}
+        <QuestionCode code={code} />
         <ResponsesComponent data={data} />
         <AnswerNote note={note} />
       </div>
@@ -91,7 +91,7 @@ const Responses = ({ data }: Props) => {
           {question}
         </h2>
         {questionMedia}
-        {code && <QuestionCode code={code} />}
+        <QuestionCode code={code} />
 
         <div
           className={`mt-8 grid h-40 w-full max-w-3xl gap-4 px-2`}

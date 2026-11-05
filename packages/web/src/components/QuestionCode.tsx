@@ -66,7 +66,11 @@ export const HighlightedCode = ({ code }: Props) => {
   )
 }
 
-const QuestionCode = ({ code }: Props) => {
+const QuestionCode = ({ code }: { code?: QuestionCodeType }) => {
+  if (!code?.source) {
+    return null
+  }
+
   const longestLine = Math.max(
     ...code.source.split("\n").map((line) => line.length),
   )
@@ -76,7 +80,7 @@ const QuestionCode = ({ code }: Props) => {
       <pre
         className="max-h-[40svh] w-full touch-auto overflow-auto rounded-md bg-black/80 p-4 text-left text-white sm:max-h-100"
         style={{
-          fontSize: `min(1rem, (100cqw - 2rem) / ${longestLine * 0.62})`,
+          fontSize: `clamp(0.625rem, (100cqw - 2rem) / ${longestLine * 0.62}, 1rem)`,
         }}
       >
         <HighlightedCode code={code} />

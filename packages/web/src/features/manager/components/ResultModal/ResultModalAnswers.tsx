@@ -13,6 +13,7 @@ import {
   ANSWERS_COLORS,
   ANSWERS_LABELS,
 } from "@razzia/web/features/game/utils/constants"
+import { HighlightedCode } from "@razzia/web/components/QuestionCode"
 import { useResultModal } from "@razzia/web/features/manager/contexts/result-modal-context"
 import { formatValue } from "@razzia/web/features/questions/estimation/utils"
 import clsx from "clsx"
@@ -167,6 +168,12 @@ const ResultModalAnswers = () => {
         <p className="text-md text-foreground mb-1 font-semibold">
           {questionResult.question}
         </p>
+
+        {questionResult.code?.source && (
+          <pre className="mb-1 overflow-x-auto rounded-md bg-black/80 p-3 text-xs text-white">
+            <HighlightedCode code={questionResult.code} />
+          </pre>
+        )}
 
         {questionResult.type === QUESTION_TYPES.ESTIMATION &&
           average !== null && (
