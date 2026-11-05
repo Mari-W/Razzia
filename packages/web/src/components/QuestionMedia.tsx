@@ -13,7 +13,7 @@ const QuestionMedia = ({ media, alt = "", autoPlay = true }: Props) => {
       <img
         alt={alt}
         src={media.url}
-        className="max-h-60 w-auto rounded-md sm:max-h-100"
+        className="max-h-60 min-h-0 w-auto rounded-md object-contain sm:max-h-100"
       />
     )
   }
