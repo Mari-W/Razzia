@@ -2,7 +2,7 @@ import type { QuestionCode } from "@razzia/common/types/game"
 import Combobox from "@razzia/web/components/Combobox"
 import {
   CODE_LANGUAGES,
-  useHighlightedCode,
+  HighlightedCode,
 } from "@razzia/web/components/QuestionCode"
 import { useQuizzEditor } from "@razzia/web/features/quizz/contexts/quizz-editor-context"
 import clsx from "clsx"
@@ -13,7 +13,6 @@ const QuestionEditorCode = () => {
   const { currentQuestion, currentIndex, updateQuestion } = useQuizzEditor()
   const { t } = useTranslation()
   const { language = "", source = "" } = currentQuestion.code ?? {}
-  const html = useHighlightedCode({ language, source })
 
   const handleChange = (code: QuestionCode) => {
     updateQuestion(currentIndex, {
@@ -45,7 +44,7 @@ const QuestionEditorCode = () => {
           aria-hidden
           className="col-start-1 row-start-1 break-words whitespace-pre-wrap"
         >
-          {html ? <code dangerouslySetInnerHTML={{ __html: html }} /> : source}
+          <HighlightedCode code={{ language, source }} />
           {"\n"}
         </pre>
         <textarea

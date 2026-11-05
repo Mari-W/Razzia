@@ -26,7 +26,7 @@ const loadLanguage = async (language: string) => {
   hljs.registerLanguage(language, grammar.default)
 }
 
-export const useHighlightedCode = ({ language, source }: QuestionCodeType) => {
+const useHighlightedCode = ({ language, source }: QuestionCodeType) => {
   const [, setLoaded] = useState<string>()
 
   useEffect(() => {
@@ -56,8 +56,17 @@ interface Props {
   code: QuestionCodeType
 }
 
-const QuestionCode = ({ code }: Props) => {
+export const HighlightedCode = ({ code }: Props) => {
   const html = useHighlightedCode(code)
+
+  return html ? (
+    <code dangerouslySetInnerHTML={{ __html: html }} />
+  ) : (
+    <code>{code.source}</code>
+  )
+}
+
+const QuestionCode = ({ code }: Props) => {
   const longestLine = Math.max(
     ...code.source.split("\n").map((line) => line.length),
   )
@@ -70,11 +79,7 @@ const QuestionCode = ({ code }: Props) => {
           fontSize: `min(1rem, (100cqw - 2rem) / ${longestLine * 0.62})`,
         }}
       >
-        {html ? (
-          <code dangerouslySetInnerHTML={{ __html: html }} />
-        ) : (
-          <code>{code.source}</code>
-        )}
+        <HighlightedCode code={code} />
       </pre>
     </div>
   )

@@ -1,11 +1,7 @@
 import { MEDIA_TYPES, QUESTION_TYPES } from "@razzia/common/constants"
-import type {
-  Question,
-  QuestionCode,
-  QuestionMedia,
-} from "@razzia/common/types/game"
+import type { Question, QuestionMedia } from "@razzia/common/types/game"
 import AlertDialog from "@razzia/web/components/AlertDialog"
-import { useHighlightedCode } from "@razzia/web/components/QuestionCode"
+import { HighlightedCode } from "@razzia/web/components/QuestionCode"
 import clsx from "clsx"
 import { CircleAlert, Music, Trash2, Video } from "lucide-react"
 import { useTranslation } from "react-i18next"
@@ -27,16 +23,6 @@ const SlideMedia = ({ media }: { media?: QuestionMedia }) => {
   }
 
   return null
-}
-
-const SlideCode = ({ code }: { code: QuestionCode }) => {
-  const html = useHighlightedCode(code)
-
-  return (
-    <pre className="max-h-14 min-w-0 overflow-hidden rounded-md bg-black/80 px-1.5 py-1 text-[6px] leading-tight text-white">
-      {html ? <code dangerouslySetInnerHTML={{ __html: html }} /> : code.source}
-    </pre>
-  )
 }
 
 interface Props {
@@ -91,7 +77,11 @@ const QuizzEditorCard = ({
 
       <div className="flex min-h-0 items-center justify-center gap-1">
         <SlideMedia media={question.media} />
-        {question.code?.source && <SlideCode code={question.code} />}
+        {question.code?.source && (
+          <pre className="max-h-14 min-w-0 overflow-hidden rounded-md bg-black/80 px-1.5 py-1 text-[6px] leading-tight text-white">
+            <HighlightedCode code={question.code} />
+          </pre>
+        )}
       </div>
 
       {question.type === QUESTION_TYPES.ESTIMATION ? (
