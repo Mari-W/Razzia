@@ -58,15 +58,25 @@ interface Props {
 
 const QuestionCode = ({ code }: Props) => {
   const html = useHighlightedCode(code)
+  const longestLine = Math.max(
+    ...code.source.split("\n").map((line) => line.length),
+  )
 
   return (
-    <pre className="max-h-[40svh] min-h-0 w-full max-w-3xl touch-auto overflow-auto rounded-md bg-black/80 p-4 text-left text-sm text-white sm:max-h-100 sm:text-base">
-      {html ? (
-        <code dangerouslySetInnerHTML={{ __html: html }} />
-      ) : (
-        <code>{code.source}</code>
-      )}
-    </pre>
+    <div className="@container flex min-h-0 w-full max-w-3xl">
+      <pre
+        className="max-h-[40svh] w-full touch-auto overflow-auto rounded-md bg-black/80 p-4 text-left text-white sm:max-h-100"
+        style={{
+          fontSize: `min(1rem, (100cqw - 2rem) / ${longestLine * 0.62})`,
+        }}
+      >
+        {html ? (
+          <code dangerouslySetInnerHTML={{ __html: html }} />
+        ) : (
+          <code>{code.source}</code>
+        )}
+      </pre>
+    </div>
   )
 }
 
