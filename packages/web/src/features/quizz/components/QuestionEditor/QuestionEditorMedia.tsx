@@ -184,22 +184,23 @@ const QuestionEditorMedia = () => {
 
       {questionMedia?.type && (
         <div className="absolute bottom-4 flex items-center gap-4">
-          {MEDIA_SWITCHES.map((name) => (
-            <label
-              key={name}
-              className="bg-background flex items-center gap-2 rounded-sm px-3 py-2 text-sm font-semibold"
-            >
-              <Switch
-                checked={Boolean(questionMedia[name])}
-                onCheckedChange={(checked) =>
-                  updateQuestion(currentIndex, {
-                    media: { ...questionMedia, [name]: checked },
-                  })
-                }
-              />
-              {t(`quizz:media.${name}`)}
-            </label>
-          ))}
+          {questionMedia.type !== MEDIA_TYPES.AUDIO &&
+            MEDIA_SWITCHES.map((name) => (
+              <label
+                key={name}
+                className="bg-background flex items-center gap-2 rounded-sm px-3 py-2 text-sm font-semibold"
+              >
+                <Switch
+                  checked={Boolean(questionMedia[name])}
+                  onCheckedChange={(checked) =>
+                    updateQuestion(currentIndex, {
+                      media: { ...questionMedia, [name]: checked },
+                    })
+                  }
+                />
+                {t(`quizz:media.${name}`)}
+              </label>
+            ))}
           <Button
             className="bg-accent text-foreground hover:bg-accent rounded-sm px-4 py-2 font-semibold transition-colors"
             onClick={handleRemoveMedia}

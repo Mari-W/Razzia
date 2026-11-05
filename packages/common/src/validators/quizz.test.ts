@@ -146,6 +146,16 @@ describe("questionMediaValidator", () => {
   it.each(["picture.png", "/other/picture.png"])("rejects %s", (url) => {
     expect(questionMediaValidator.safeParse({ url }).success).toBe(false)
   })
+
+  it("keeps the display flags", () => {
+    const media = {
+      url: "/media/picture.png",
+      showToPlayers: true,
+      showOnResponses: false,
+    }
+
+    expect(questionMediaValidator.parse(media)).toEqual(media)
+  })
 })
 
 describe("normalizeLegacyQuizz", () => {
