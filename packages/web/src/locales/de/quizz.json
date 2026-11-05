@@ -97,7 +97,9 @@
       "grid": "Rasteransicht",
       "list": "Listenansicht"
     },
-    "filterByType": "Nach Typ filtern"
+    "filterByType": "Nach Typ filtern",
+    "showToPlayers": "Immer auf Handys zeigen",
+    "showOnResponses": "Auf Ergebnisseite zeigen"
   },
   "addAnswer": "Antwort hinzufügen",
   "removeAnswer": "Antwort entfernen",

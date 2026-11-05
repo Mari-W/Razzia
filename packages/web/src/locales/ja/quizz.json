@@ -97,7 +97,9 @@
       "grid": "グリッド表示",
       "list": "リスト表示"
     },
-    "filterByType": "種類で絞り込む"
+    "filterByType": "種類で絞り込む",
+    "showToPlayers": "スマホに常に表示",
+    "showOnResponses": "結果に表示"
   },
   "addAnswer": "回答を追加",
   "removeAnswer": "回答を削除",

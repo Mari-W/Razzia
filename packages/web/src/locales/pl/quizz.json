@@ -97,7 +97,9 @@
       "grid": "Widok siatki",
       "list": "Widok listy"
     },
-    "filterByType": "Filtruj według typu"
+    "filterByType": "Filtruj według typu",
+    "showToPlayers": "Zawsze pokazuj na telefonach",
+    "showOnResponses": "Pokaż w wynikach"
   },
   "addAnswer": "Dodaj odpowiedź",
   "removeAnswer": "Usuń odpowiedź",
